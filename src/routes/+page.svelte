@@ -1,2 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import Component1 from '../lib/Component1.svelte'
+
+  const setState = newState => {
+    state = newState
+  }
+
+  let state = $state({
+    component: Component1,
+    props: {
+      value: 1,
+      setState,
+    },
+  })
+</script>
+
+<state.component {...state.props} />
